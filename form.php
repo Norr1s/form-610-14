@@ -1,3 +1,14 @@
+<?php
+    $data = $_SERVER["REQUEST_METHOD"] === "POST";
+    if ($data) {
+        $name = htmlspecialchars($_POST['name']);
+        $class = htmlspecialchars($_POST['class']);
+        $number = htmlspecialchars($_POST['number']);
+        $sex = isset($_POST['sex']) ? implode(', ', $_POST['sex']) : '';
+
+    goto result;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +20,6 @@
 </head>
 <body class="p-4">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <?php
-        $data = $_SERVER["REQUEST_METHOD"] === "POST";
-
-        if ($data) {
-            $name = htmlspecialchars($_POST['name']);
-            $class = htmlspecialchars($_POST['class']);
-            $number = htmlspecialchars($_POST['number']);
-            $sex = isset($_POST['sex']) ? implode(', ', $_POST['sex']) : '';
-
-        goto result;
-        }
-    ?>
     <div class="container">
         <form method="post" action="" class="mx-auto">
             <label class="mt-2">ชื่อ-สกุล: </label>
